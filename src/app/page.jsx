@@ -1,11 +1,187 @@
 "use client";
-import { useState } from "react";
-
+import { use, useState } from "react";
+const menus = [
+  {
+    id: 1,
+    type: "breakfast",
+    image: "https://react-vite-projects-5-menu.netlify.app/images/item-1.jpeg",
+    title: "Buttermilk Pancakes",
+    price: "$15.99",
+    text: "I'm baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed I'm baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed",
+  },
+  {
+    id: 2,
+    type: "lunch",
+    image: "https://react-vite-projects-5-menu.netlify.app/images/item-2.jpeg",
+    title: "Diner Double",
+    price: "$13.99",
+    text: "vaporware iPhone mumblecore selvage raw denim slow-carb leggings gochujang helvetica man braid jianbing. Marfa thundercats",
+  },
+  {
+    id: 3,
+    type: "shakes",
+    image: "https://react-vite-projects-5-menu.netlify.app/images/item-3.jpeg",
+    title: "Godzilla Milkshake",
+    price: "$6.99",
+    text: "ombucha chillwave fanny pack 3 wolf moon street art photo booth before they sold out organic viral.",
+  },
+  {
+    id: 4,
+    type: "breakfast",
+    image: "https://react-vite-projects-5-menu.netlify.app/images/item-4.jpeg",
+    title: "Country Delight",
+    price: "$20.99",
+    text: "I'Shabby chic keffiyeh neutra snackwave pork belly shoreditch. Prism austin mlkshk truffaut, baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed I'm",
+  },
+  {
+    id: 5,
+    type: "lunch",
+    image: "https://react-vite-projects-5-menu.netlify.app/images/item-5.jpeg",
+    title: "Egg Attack",
+    price: "$22.99",
+    text: "franzen vegan pabst bicycle rights kickstarter pinterest meditation farm-to-table 90's pop-up",
+  },
+  {
+    id: 6,
+    type: "shakes",
+    image: "https://react-vite-projects-5-menu.netlify.app/images/item-6.jpeg",
+    title: "Oreo Dream",
+    price: "$18.99",
+    text: "Portland chicharrones ethical edison bulb, palo santo craft beer chia heirloom iPhone everyday",
+  },
+  {
+    id: 7,
+    type: "breakfast",
+    image: "https://react-vite-projects-5-menu.netlify.app/images/item-7.jpeg",
+    title: "Bacon Overflow",
+    price: "$8.99",
+    text: "carry jianbing normcore freegan. Viral single-origin coffee live-edge, pork belly cloud bread iceland put a bird",
+  },
+  {
+    id: 8,
+    type: "lunch",
+    image: "https://react-vite-projects-5-menu.netlify.app/images/item-8.jpeg",
+    title: "American Classic",
+    price: "$12.99",
+    text: "on it tumblr kickstarter thundercats migas everyday carry squid palo santo leggings. Food truck truffaut",
+  },
+  {
+    id: 9,
+    type: "shakes",
+    image: "https://react-vite-projects-5-menu.netlify.app/images/item-9.jpeg",
+    title: "Quarantine Buddy",
+    price: "$16.99",
+    text: "skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.",
+  },
+];
 export default function Home() {
   return (
     <div>
-      <h1>Hello World</h1>
+      <MenuList />
     </div>
   );
 }
-Home;
+// const MenuList = () => {
+//   const [menuList, setMenuList] = useState(menus);
+//   const showAll = () => {
+//     setMenuList(menus);
+//   };
+//   const showBreakfast = () => {
+//     const filtered = menus.filter((item) => item.type === "breakfast");
+//     setMenuList(filtered);
+//   };
+
+//   const showLunch = () => {
+//     const filtered = menus.filter((item) => item.type === "lunch");
+//     setMenuList(filtered);
+//   };
+//   const showShakes = () => {
+//     const filtered = menus.filter((item) => item.type === "shakes");
+//     setMenuList(filtered);
+//   };
+//   return (
+//     <div className="bg-[#f9fafc] h-screens flex flex-col items-center">
+//       <div className="flex flex-col justify-center items-center p-3">
+//         <h1 className="text-5xl ">Our Menu</h1>
+//         <div className="h-1 w-30 bg-[#f4a016] mt-4"></div>
+//         <div className="flex gap-3 mt-6">
+//           <button
+//             onClick={showAll}
+//             className="bg-[#f49d0e] font-semibold py-1 px-6 rounded-xs text-white text-xl hover:bg-yellow-600 transition-colors"
+//           >
+//             All
+//           </button>
+//           <button
+//             onClick={showBreakfast}
+//             className="bg-[#f49d0e]
+//          font-semibold py-1 px-6 rounded-xs text-white text-xl hover:bg-yellow-600 transition-colors"
+//           >
+//             Breakfast
+//           </button>
+//           <button
+//             onClick={showLunch}
+//             className="bg-[#f49d0e] font-semibold py-1 px-6 rounded-xs text-white text-xl hover:bg-yellow-600 transition-colors"
+//           >
+//             Lunch
+//           </button>
+//           <button
+//             onClick={showShakes}
+//             className="bg-[#f49d0e] font-semibold py-1 px-6 rounded-xs text-white text-xl hover:bg-yellow-600 transition-colors"
+//           >
+//             Shakes
+//           </button>
+//         </div>
+//       </div>
+
+//       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto">
+//         {menuList.map(({ id, image, title, price, text }) => (
+//           <MenuListItem
+//             key={id}
+//             id={id}
+//             image={image}
+//             title={title}
+//             price={price}
+//             text={text}
+//           />
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// const MenuListItem = ({ id, image, title, price, text }) => {
+//   return (
+//     <div>
+//       <div className="bg-white w-100">
+//         <img className="w-100 h-62.5 rounded-sm mt-4" src={image} alt="image" />
+//         <div className="flex justify-between p-2">
+//           <h1 className="font-semibold text-2xl ">{title}</h1>
+//           <p className="font-semibold bg-[#f49d0d] rounded-xs text-white text-center w-20 text-xl">
+//             {price}
+//           </p>
+//         </div>
+//         <p className="text-lg p-2 ">{text}</p>
+//       </div>
+//     </div>
+//   );
+// };
+
+const MenuList = () => {
+  const [menuList, setMenuList] = useState(menus);
+  return (
+    <div>
+      <div>
+        {menuList.map((item) => {
+          return (
+            <div key={item.id}>
+              <h3>{item.title}</h3>
+              <img src={item.image} alt="image" />
+              <h5>{item.price}</h5>
+              <p>{item.text}</p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
